@@ -2,14 +2,13 @@
 """mapper.py"""
 
 import sys
-import re
 import string
+
+punctuation_to_space = str.maketrans(string.punctuation, " " * len(string.punctuation))
 
 
 def preprocess(text):
-    text = text.translate(str.maketrans("", "", string.punctuation)).lower().strip()
-    tokens = re.split(r"\W+", text)
-    return tokens
+    return text.translate(punctuation_to_space).lower().strip().split()
 
 
 def read_input(input_file):

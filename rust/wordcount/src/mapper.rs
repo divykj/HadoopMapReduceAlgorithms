@@ -7,21 +7,25 @@ fn main() {
 }
 
 struct WordcountMapper {
-    word_regex: Regex,
+    punctuation_match: Regex,
 }
 
 impl WordcountMapper {
     pub fn new() -> Self {
         Self {
-            word_regex: Regex::new(r"(\w+)").unwrap(),
+            punctuation_match: Regex::new(r"[[:punct:]]|_").unwrap(),
         }
     }
 }
 
 impl Mapper for WordcountMapper {
     fn map(&mut self, _key: usize, value: &[u8], ctx: &mut Context) {
-        self.word_regex
-            .captures_iter(&std::str::from_utf8(value).unwrap().trim().to_lowercase())
-            .for_each(|word| ctx.write_fmt(&word[0], 1));
+        self.punctuation_match
+            .replace_all(
+                &std::str::from_utf8(value).unwrap().trim().to_lowercase(),
+                " ",
+            )
+            .split_ascii_whitespace()
+            .for_each(|word| ctx.write_fmt(&word, 1));
     }
 }
