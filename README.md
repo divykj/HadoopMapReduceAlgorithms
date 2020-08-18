@@ -1,7 +1,7 @@
-# Hadoop MapReduce Examples
+# Hadoop MapReduce Algorithms
 
-A basic set of `mapper` and `reducer` scripts for hadoop mapreduce written
-in `python` and `rust`.
+Set of algorithms implemented for Hadoop MapReduce using `mapper` and `reducer`
+scripts in `python` and `rust`.
 
 ## Usage
 
@@ -29,7 +29,7 @@ Run scripts with Unix command shimming:
   > <OUTPUT>
 ```
 
-### Python
+### Using Python Scripts
 
 Running python scripts:
 
@@ -41,7 +41,7 @@ Running python scripts:
   -output <OUTPUT>
 ```
 
-### Rust
+### Using Rust Scripts
 
 Running rust scripts:
 
