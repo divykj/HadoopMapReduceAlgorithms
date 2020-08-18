@@ -21,7 +21,7 @@ impl Reducer for WordcountReducer {
                         .parse::<usize>()
                         .unwrap()
                 })
-                .fold(0, |acc, value| acc + value)
+                .sum::<usize>()
                 .to_string()
                 .as_bytes(),
         );

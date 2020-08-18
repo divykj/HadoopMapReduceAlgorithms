@@ -16,7 +16,7 @@ def main(separator="\t"):
     for current_word, group in groupby(data, itemgetter(0)):
         try:
             total_count = sum(int(count) for _, count in group)
-            print(f"{current_word}{separator}{total_count}")
+            sys.stdout.write(f"{current_word}{separator}{total_count}\n")
         except ValueError:
             pass
 
