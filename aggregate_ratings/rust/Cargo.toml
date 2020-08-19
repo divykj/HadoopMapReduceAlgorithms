@@ -1,0 +1,17 @@
+[package]
+name = "aggregate_ratings"
+version = "0.1.0"
+edition = "2018"
+
+[dependencies]
+efflux = "2.0"
+
+[[bin]]
+doc = false
+name = "aggregate_ratings_mapper"
+path = "src/mapper.rs"
+
+[[bin]]
+doc = false
+name = "aggregate_ratings_reducer"
+path = "src/reducer.rs"
